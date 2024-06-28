@@ -1,4 +1,4 @@
-﻿using DapperProject.Dtos.CategoryDtos;
+﻿using NewDapperProject.Dtos.CategoryDtos;
 
 namespace DapperProject.Services.CategoryServices;
 

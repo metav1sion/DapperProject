@@ -1,3 +1,6 @@
+using DapperProject.Context;
+using DapperProject.Services.CategoryServices;
+
 namespace NewDapperProject
 {
     public class Program
@@ -7,6 +10,10 @@ namespace NewDapperProject
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<DapperContext>();
+
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

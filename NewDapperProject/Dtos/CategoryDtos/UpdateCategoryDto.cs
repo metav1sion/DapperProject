@@ -1,4 +1,4 @@
-﻿namespace DapperProject.Dtos.CategoryDtos;
+﻿namespace NewDapperProject.Dtos.CategoryDtos;
 
 public class UpdateCategoryDto
 {

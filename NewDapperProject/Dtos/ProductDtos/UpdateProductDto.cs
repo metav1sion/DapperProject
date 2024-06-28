@@ -1,4 +1,4 @@
-﻿namespace DapperProject.Dtos.ProductDtos;
+﻿namespace NewDapperProject.Dtos.ProductDtos;
 
 public class UpdateProductDto
 {

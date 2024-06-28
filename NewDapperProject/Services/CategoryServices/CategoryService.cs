@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using DapperProject.Context;
-using DapperProject.Dtos.CategoryDtos;
+using NewDapperProject.Dtos.CategoryDtos;
 
 namespace DapperProject.Services.CategoryServices;
 
@@ -30,14 +30,19 @@ public class CategoryService : ICategoryService
         await connection.ExecuteAsync(query, paramaters);
     }
 
-    public Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
+    public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
     {
-        throw new NotImplementedException();
+        string query = "Update TblCategory Set CategoryName=@categoryName Where CategoryId=@categoryId";
+        var paramaters = new DynamicParameters();
+        paramaters.Add("@categoryName",updateCategoryDto.CategoryName);
+        paramaters.Add("@categoryId",updateCategoryDto.CategoryId);
+        var connection = _dapperContext.CreateConnection();
+        await connection.ExecuteAsync(query,paramaters);
     }
 
     public async Task DeleteCategoryAsync(int id)
     {
-        string query = "Delete From TblCategory Where Category=@categoryId";
+        string query = "Delete From TblCategory Where CategoryId=@categoryId";
         var paramaters = new DynamicParameters();
         paramaters.Add("@categoryId",id);
         var connection = _dapperContext.CreateConnection();
